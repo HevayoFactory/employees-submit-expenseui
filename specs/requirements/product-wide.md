@@ -9,3 +9,4 @@ Rules that apply to more than one feature.
 ## Decisions
 
 - One currency only; no multi-currency support.
+
