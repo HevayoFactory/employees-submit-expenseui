@@ -1,0 +1,23 @@
+title Expense Claims
+
+component expense-webapp as "Expense Claims" web-application
+component expense-api as "Expense API" service
+component category-agent as "Category Suggestion Agent" ai-agent
+component expense-db as "Expense Database" database
+component category-memory-db as "Category Agent Memory" database
+
+east user-auth as "Thunder Auth" identity-server
+
+north -> expense-webapp
+north -> expense-api
+north -> category-agent
+
+expense-webapp -> expense-api
+expense-webapp -> user-auth
+expense-webapp -> category-agent
+
+expense-api -> user-auth
+expense-api -> expense-db
+
+category-agent -> user-auth
+category-agent -> category-memory-db

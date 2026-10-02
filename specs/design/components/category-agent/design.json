@@ -1,0 +1,17 @@
+{
+  "name": "category-agent",
+  "type": "ai-agent",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "category-agent",
+  "entrypoint": "deployment/ai-agent",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "platform-resource", "name": "category-memory-db", "resourceType": "postgres-cnpg" },
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "Suggests an expense category from an expense line's description and receipt, which the employee then accepts or changes. Calls no other component's API and holds no business data beyond its own conversation store.",
+  "stories": ["F1.3"],
+  "skillsPinned": ["agent-building"]
+}
